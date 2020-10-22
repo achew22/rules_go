@@ -55,3 +55,23 @@ bzl_library(
         "//go/private:sdk",
     ],
 )
+
+load("@io_bazel_stardoc//stardoc:stardoc.bzl", "stardoc")
+
+stardoc(
+    name = "def-docs",
+    out = "def_doc.md",
+    input = "def.bzl",
+    deps = [
+        "//extras:embed_data",
+        "//go/private:context",
+        "//go/private:go_toolchain",
+        "//go/private:providers",
+        "//go/private/rules:library",
+        "//go/private/rules:nogo",
+        "//go/private/rules:sdk",
+        "//go/private/rules:source",
+        "//go/private/rules:wrappers",
+        "//go/private/tools:path",
+    ],
+)

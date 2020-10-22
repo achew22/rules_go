@@ -105,3 +105,16 @@ local_repository(
     name = "runfiles_remote_test",
     path = "tests/core/runfiles/runfiles_remote_test",
 )
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+git_repository(
+    name = "io_bazel_stardoc",
+    commit = "a6505f292c00f7a1d00953c8fc23aacedb3a7d03",
+    #remote = "https://github.com/bazelbuild/stardoc.git",
+    remote = "https://github.com/segiddins/stardoc.git",
+)
+
+load("@io_bazel_stardoc//:setup.bzl", "stardoc_repositories")
+
+stardoc_repositories()
